@@ -5,18 +5,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
-};
-var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
-};
-var _Foo_buzz;
 const PropertyProxy = () => {
     return (target, propertyName, descriptor = null) => {
         // console.log("target", target);
@@ -48,16 +36,15 @@ const PropertyProxy = () => {
 class Foo {
     constructor() {
         this.bar = "hello";
-        _Foo_buzz.set(this, 42);
+        this._buzz = 42;
     }
     get buzz() {
-        return __classPrivateFieldGet(this, _Foo_buzz, "f");
+        return this._buzz;
     }
     set buzz(value) {
-        __classPrivateFieldSet(this, _Foo_buzz, value, "f");
+        this._buzz = value;
     }
 }
-_Foo_buzz = new WeakMap();
 __decorate([
     PropertyProxy()
 ], Foo.prototype, "bar", void 0);

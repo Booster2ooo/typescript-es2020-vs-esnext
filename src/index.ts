@@ -31,13 +31,13 @@ class Foo {
   @PropertyProxy()
   bar: string = "hello";
 
-  #buzz: number = 42;
+  _buzz: number = 42;
   @PropertyProxy()
   get buzz(): number {
-    return this.#buzz;
+    return this._buzz;
   }
   set buzz(value: number) {
-    this.#buzz = value;
+    this._buzz = value;
   }
 }
 

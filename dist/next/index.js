@@ -35,12 +35,12 @@ const PropertyProxy = () => {
 };
 class Foo {
     bar = "hello";
-    #buzz = 42;
+    _buzz = 42;
     get buzz() {
-        return this.#buzz;
+        return this._buzz;
     }
     set buzz(value) {
-        this.#buzz = value;
+        this._buzz = value;
     }
 }
 __decorate([
