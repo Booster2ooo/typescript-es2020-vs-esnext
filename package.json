@@ -1,0 +1,18 @@
+{
+  "name": "ts-inconsistent-es2020-vs-esnext",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "npx tsc",
+    "build": "npx tsc -p ./tsconfig.2020.json && npx tsc -p ./tsconfig.next.json",
+    "serve": "npx http-server . -p 8181 -o /demo/ -c-1",
+    "start": "npm run build && npm run serve"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "http-server": "^14.1.1",
+    "typescript": "^5.0.2"
+  }
+}
